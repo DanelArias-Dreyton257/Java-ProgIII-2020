@@ -29,13 +29,21 @@ import javax.swing.JPanel;
 
 import objetos.Coche;
 
+/**
+ * Ventana principal en la cual se encuentra el coche
+ * 
+ * @author danel
+ *
+ */
 public class Ventana extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
 	private static final int HEIGHT_V = 800;
 	private static final int WIDTH_V = 600;
-	private static final double ROTATION_ANGLE = 10 * Math.PI / 180;
+
+	private static final double ROTATION_ANGLE = 10 * Math.PI / 180; // Angulo de rotacion del coche cuando gira
+
 	public static final int LEFT = -1;
 	public static final int RIGHT = 1;
 	public static final int STAY = 0;
@@ -53,13 +61,19 @@ public class Ventana extends JFrame {
 	JButton btDerecha = new JButton("Derecha (D)");
 	JButton btFrenar = new JButton("Frenar (S)");
 
+	/**
+	 * Constructor de la ventana
+	 */
 	public Ventana() {
-		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		this.setSize(new Dimension(HEIGHT_V, WIDTH_V));
 
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+		// Colocacion y tamanyo de la ventana
+		this.setSize(new Dimension(HEIGHT_V, WIDTH_V));
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
 
+		// Colocacion de los paneles
 		this.getContentPane().setLayout(new BorderLayout());
 
 		this.getContentPane().add(pnCentral, BorderLayout.CENTER);
@@ -72,18 +86,19 @@ public class Ventana extends JFrame {
 
 		pnCentral.setLayout(null);
 
+		// Carga de la imagen
 		BufferedImage bimg = null;
 		try {
-			bimg = ImageIO
-					.read(new File("C:\\Users\\danel\\eclipse-workspace\\Practica0\\src\\visuales\\img\\coche.png")); // TODO
+			bimg = ImageIO.read(new File("src/visuales/img/coche.png")); // TODO
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		// Redimensiona la imagen para que concuerd con las dimensiones especificadas
 		Image dimg = bimg.getScaledInstance(c.getDim().width, c.getDim().height, Image.SCALE_SMOOTH);
 
 		ImageIcon imgIcon = new ImageIcon(dimg);
 
+		// Necesito cambiar como se dibujan los gráficos del JLabel para rotar la imagen
 		lbImg = new JLabel(imgIcon) {
 
 			private static final long serialVersionUID = 1L;
@@ -96,24 +111,28 @@ public class Ventana extends JFrame {
 			}
 
 		};
+
 		lbImg.setSize(c.getDim());
 
 		pnCentral.add(lbImg);
 		pnBottom.setBackground(Color.GRAY);
 		pnControls.setBackground(Color.GRAY);
 
+		// Este hilo actualiza la posicion del vehiculo mientras el programa esta
+		// ejecutandose
 		Thread t = new Thread() {
 
 			@Override
 			public void run() {
 				while (true) {
 					updateCarPos();
-					requestFocusInWindow();
+					requestFocusInWindow(); // Necesario para la deteccion de las teclas por el KeyListener
 				}
 			}
 		};
 		t.setDaemon(true);
 
+		// Cuando la ventana se abre coloca el cohe en el centro de la pantalla
 		addWindowListener(new WindowAdapter() {
 
 			@Override
@@ -124,6 +143,8 @@ public class Ventana extends JFrame {
 			}
 
 		});
+
+		// Listeners de los botones
 
 		btAcelerar.addActionListener(new ActionListener() {
 
@@ -159,6 +180,7 @@ public class Ventana extends JFrame {
 			}
 		});
 
+		// Segun la tecla pulsada ejecuta los movimientos del coche
 		addKeyListener(new KeyAdapter() {
 
 			@Override
@@ -175,11 +197,15 @@ public class Ventana extends JFrame {
 			}
 		});
 
+		// Necesario para que el Keylistenere detecte las teclas
 		setFocusable(true);
 		requestFocusInWindow();
 
 	}
 
+	/**
+	 * Actualiza la posicion del coche
+	 */
 	private void updateCarPos() {
 
 		c.update();
@@ -190,20 +216,34 @@ public class Ventana extends JFrame {
 
 	}
 
+	/**
+	 * Anyade a el contenedor pasado como parametro los componentes pasados por
+	 * parametro en ese mismo orden
+	 * 
+	 * @param cn  contenedor
+	 * @param cms componentes
+	 */
 	private void addAll(Container cn, Component... cms) {
 		for (Component cm : cms)
 			cn.add(cm);
 	}
 
+	/**
+	 * Aumenta la velocidad del coche en un 10 %
+	 */
 	private void accCar() {
 		c.getVel().mult(1.1);
 	}
 
+	/**
+	 * Ralentiza la velocidad del coche un 15%
+	 */
 	private void stopCar() {
 		c.getVel().mult(0.85);
 	}
 
 	/**
+	 * Gira el coche según el giro indicado
 	 * 
 	 * @param dir 0 if no turn, -1 if turn left and 1 if turn right
 	 */

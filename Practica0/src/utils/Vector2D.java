@@ -122,18 +122,41 @@ public class Vector2D {
 		return "(" + x + "," + y + ")";
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		boolean result = false;
+		if (obj instanceof Vector2D) {
+			Vector2D ov = (Vector2D) obj;
+			result = this.getX()==ov.getX() && this.getY()==ov.getY(); 
+		}
+		return result;
+	}
+	
+	/**
+	 * Devuelve el valor de la coordenada x
+	 * @return
+	 */
 	public double getX() {
 		return x;
 	}
-
+	/**
+	 * Establece el valor de la coordenada x
+	 * @param x
+	 */
 	public void setX(double x) {
 		this.x = x;
 	}
-
+	/**
+	 * Devuelve el valor de la coordenada y
+	 * @return
+	 */
 	public double getY() {
 		return y;
 	}
-
+	/**
+	 * Establece el valor de la coordenada y
+	 * @param y
+	 */
 	public void setY(double y) {
 		this.y = y;
 	}
