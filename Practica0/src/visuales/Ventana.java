@@ -39,8 +39,10 @@ public class Ventana extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final int HEIGHT_V = 800;
-	private static final int WIDTH_V = 600;
+	private static final int HEIGHT_V = 900;
+	private static final int WIDTH_V = 700;
+
+	private static final String TITLE = "Practica0-Coche by Danel Arias";
 
 	private static final double ROTATION_ANGLE = 10 * Math.PI / 180; // Angulo de rotacion del coche cuando gira
 
@@ -67,6 +69,7 @@ public class Ventana extends JFrame {
 	public Ventana() {
 
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setTitle(TITLE);
 
 		// Colocacion y tamanyo de la ventana
 		this.setSize(new Dimension(HEIGHT_V, WIDTH_V));
