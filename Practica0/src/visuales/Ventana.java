@@ -39,8 +39,8 @@ public class Ventana extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final int HEIGHT_V = 900;
-	private static final int WIDTH_V = 700;
+	private static final int HEIGHT_V = 700;
+	private static final int WIDTH_V = 900;
 
 	private static final String TITLE = "Practica0-Coche by Danel Arias";
 
@@ -74,7 +74,7 @@ public class Ventana extends JFrame {
 		this.setTitle(TITLE);
 
 		// Colocacion y tamanyo de la ventana
-		this.setSize(new Dimension(HEIGHT_V, WIDTH_V));
+		this.setSize(new Dimension(WIDTH_V, HEIGHT_V));
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
 
