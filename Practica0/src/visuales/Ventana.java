@@ -45,6 +45,8 @@ public class Ventana extends JFrame {
 	private static final String TITLE = "Practica0-Coche by Danel Arias";
 
 	private static final double ROTATION_ANGLE = 10 * Math.PI / 180; // Angulo de rotacion del coche cuando gira
+	private static final double ACC_BUT_PERC = 30.0;
+	private static final double ACC_KEY_PERC = 10.0;
 
 	public static final int LEFT = -1;
 	public static final int RIGHT = 1;
@@ -153,7 +155,7 @@ public class Ventana extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				accCar();
+				accCar(ACC_BUT_PERC);
 			}
 		});
 
@@ -161,7 +163,7 @@ public class Ventana extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				stopCar();
+				stopCar(ACC_BUT_PERC);
 			}
 		});
 
@@ -189,9 +191,9 @@ public class Ventana extends JFrame {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_W)
-					accCar();
+					accCar(ACC_KEY_PERC);
 				else if (e.getKeyCode() == KeyEvent.VK_S)
-					stopCar();
+					stopCar(ACC_KEY_PERC);
 				else if (e.getKeyCode() == KeyEvent.VK_A)
 					turnCar(LEFT);
 				else if (e.getKeyCode() == KeyEvent.VK_D)
@@ -232,17 +234,21 @@ public class Ventana extends JFrame {
 	}
 
 	/**
-	 * Aumenta la velocidad del coche en un 10 %
+	 * Aumenta la velocidad del coche segun el porcentaje pasado como parametro
+	 * 
+	 * @param double entre 0 y 100
 	 */
-	private void accCar() {
-		c.getVel().mult(1.1);
+	private void accCar(double perc) {
+		c.getVel().mult(1 + (perc / 100));
 	}
 
 	/**
-	 * Ralentiza la velocidad del coche un 15%
+	 * Ralentiza la velocidad del coche segun el porcentaje pasado como parametro
+	 * 
+	 * @param double entre 0 y 100
 	 */
-	private void stopCar() {
-		c.getVel().mult(0.85);
+	private void stopCar(double perc) {
+		c.getVel().mult(1 - (perc / 100));
 	}
 
 	/**
