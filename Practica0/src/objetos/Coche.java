@@ -11,9 +11,10 @@ import utils.Vector2D;
  *
  */
 public class Coche {
+	private static final int CAR_DIM = 90;
 	private Vector2D pos = new Vector2D();
 	private Vector2D vel = new Vector2D(0, -0.0001);
-	private Dimension dim = new Dimension(80, 80);
+	private Dimension dim = new Dimension(CAR_DIM, CAR_DIM);
 
 	/**
 	 * Actualiza la posicion dl coche
