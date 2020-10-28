@@ -44,7 +44,7 @@ public class ListaDeReproduccion implements ListModel<String> {
 			ficherosLista.remove(posi2);
 			ficherosLista.add(posi2, f1);
 
-		} catch (ArrayIndexOutOfBoundsException e) {
+		} catch (IndexOutOfBoundsException e) {
 			return;
 		}
 	}
@@ -68,6 +68,17 @@ public class ListaDeReproduccion implements ListModel<String> {
 	}
 
 	/**
+	 * Anyade ficheros a la lista de reproduccion en las ultimas posiciones
+	 * siguiendo el orden pasado por parametro
+	 * 
+	 * @param files
+	 */
+	public void add(File... files) {
+		for (File f : files)
+			ficherosLista.add(f);
+	}
+
+	/**
 	 * Elimina el fichero indicado en la posicion pasada como parametro Si la
 	 * posicion no es una posicion valida no hace nada
 	 * 
@@ -76,10 +87,11 @@ public class ListaDeReproduccion implements ListModel<String> {
 	public void removeFic(int pos) {
 		try {
 			ficherosLista.remove(pos);
-		} catch (IllegalArgumentException e) {
+		} catch (IndexOutOfBoundsException e) {
 
 		}
 	}
+
 	/**
 	 * Borra todos los elementos de la lista
 	 */
