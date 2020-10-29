@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2020-10-29T14:48:05.973160300Z</date>
-  <millis>1603982885973</millis>
-  <nanos>160300</nanos>
+  <date>2020-10-29T15:16:27.904847200Z</date>
+  <millis>1603984587904</millis>
+  <nanos>847200</nanos>
   <sequence>0</sequence>
   <logger>ud.prog3.pr01.ListaDeReproduccion</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>Añadiendo ficheros con filtro *Pentatonix*.mp4</message>
 </record>
 <record>
-  <date>2020-10-29T14:48:06.039122Z</date>
-  <millis>1603982886039</millis>
-  <nanos>122000</nanos>
+  <date>2020-10-29T15:16:27.942806400Z</date>
+  <millis>1603984587942</millis>
+  <nanos>806400</nanos>
   <sequence>1</sequence>
   <logger>ud.prog3.pr01.ListaDeReproduccion</logger>
   <level>INFO</level>
@@ -24,5 +24,29 @@
   <method>add</method>
   <thread>1</thread>
   <message>Añadiendo ficheros con filtro .*Pentatonix.*\.mp4</message>
+</record>
+<record>
+  <date>2020-10-29T15:16:27.943805400Z</date>
+  <millis>1603984587943</millis>
+  <nanos>805400</nanos>
+  <sequence>2</sequence>
+  <logger>ud.prog3.pr01.ListaDeReproduccion</logger>
+  <level>SEVERE</level>
+  <class>ud.prog3.pr01.ListaDeReproduccion</class>
+  <method>add</method>
+  <thread>1</thread>
+  <message>Fichero: Fichero Pentatonix no video.txt NO cumple con el filtro</message>
+</record>
+<record>
+  <date>2020-10-29T15:16:27.944805500Z</date>
+  <millis>1603984587944</millis>
+  <nanos>805500</nanos>
+  <sequence>3</sequence>
+  <logger>ud.prog3.pr01.ListaDeReproduccion</logger>
+  <level>SEVERE</level>
+  <class>ud.prog3.pr01.ListaDeReproduccion</class>
+  <method>add</method>
+  <thread>1</thread>
+  <message>Fichero: No del grupo.mp4 NO cumple con el filtro</message>
 </record>
 </log>

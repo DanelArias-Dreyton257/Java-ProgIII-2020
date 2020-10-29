@@ -140,14 +140,19 @@ public class ListaDeReproduccion implements ListModel<String> {
 		filtroFicheros = filtroFicheros.replaceAll("\\*", "\\.*");
 
 		logger.log(Level.INFO, "Añadiendo ficheros con filtro " + filtroFicheros);
-		Pattern filtro = Pattern.compile(filtroFicheros);
-		//FIXME
+
 		File fInic = new File(carpetaFicheros);
 		int cont = 0;
 		if (fInic.isDirectory()) {
 			for (File f : fInic.listFiles()) {
 				cont++;
-				logger.log(Level.FINE, "Procesando fichero " + f.getName());
+				logger.log(Level.FINE, "Procesando fichero: " + f.getName());
+				boolean filtro = Pattern.matches(filtroFicheros, f.getName());
+				if (filtro) {
+					logger.log(Level.FINE, "Fichero: " + f.getName() + " cumple con el filtro");
+				} else {
+					logger.log(Level.SEVERE, "Fichero: " + f.getName() + " NO cumple con el filtro");
+				}
 			}
 		}
 

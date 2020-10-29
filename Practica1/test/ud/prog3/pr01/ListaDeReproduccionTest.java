@@ -9,10 +9,10 @@ import org.junit.*;
 public class ListaDeReproduccionTest {
 	private ListaDeReproduccion lr1;
 	private ListaDeReproduccion lr2;
-	private final File FIC_TEST1 = new File("test/res/video1.mp4");
-	private final File FIC_TEST2 = new File("test/res/video2.mp4");
-	private final File FIC_TEST3 = new File("test/res/video3.mp4");
-	private final File FIC_TEST4 = new File("test/res/video4.mp4");
+	private final File FIC_TEST1 = new File("test/res/No del grupo.mp4");
+	private final File FIC_TEST2 = new File("test/res/No del grupo.mp4");
+	private final File FIC_TEST3 = new File("test/res/No del grupo.mp4");
+	private final File FIC_TEST4 = new File("test/res/No del grupo.mp4");
 
 	@Before
 	public void setUp() throws Exception {
