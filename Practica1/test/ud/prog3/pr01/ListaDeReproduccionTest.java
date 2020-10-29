@@ -18,7 +18,11 @@ public class ListaDeReproduccionTest {
 	public void setUp() throws Exception {
 		lr1 = new ListaDeReproduccion();
 		lr2 = new ListaDeReproduccion();
-		lr2.add(FIC_TEST1, FIC_TEST2, FIC_TEST3, FIC_TEST4);
+		lr2.add(FIC_TEST1);
+		lr2.add(FIC_TEST2);
+		lr2.add(FIC_TEST3);
+		lr2.add(FIC_TEST4);
+
 	}
 
 	@After

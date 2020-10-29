@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-10-29T14:48:05.973160300Z</date>
+  <millis>1603982885973</millis>
+  <nanos>160300</nanos>
+  <sequence>0</sequence>
+  <logger>ud.prog3.pr01.ListaDeReproduccion</logger>
+  <level>INFO</level>
+  <class>ud.prog3.pr01.ListaDeReproduccion</class>
+  <method>add</method>
+  <thread>1</thread>
+  <message>Añadiendo ficheros con filtro *Pentatonix*.mp4</message>
+</record>
+<record>
+  <date>2020-10-29T14:48:06.039122Z</date>
+  <millis>1603982886039</millis>
+  <nanos>122000</nanos>
+  <sequence>1</sequence>
+  <logger>ud.prog3.pr01.ListaDeReproduccion</logger>
+  <level>INFO</level>
+  <class>ud.prog3.pr01.ListaDeReproduccion</class>
+  <method>add</method>
+  <thread>1</thread>
+  <message>Añadiendo ficheros con filtro .*Pentatonix.*\.mp4</message>
+</record>
+</log>

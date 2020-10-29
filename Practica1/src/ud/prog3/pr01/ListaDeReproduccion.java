@@ -1,9 +1,13 @@
 package ud.prog3.pr01;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 import javax.swing.ListModel;
 import javax.swing.event.ListDataEvent;
@@ -16,7 +20,17 @@ import javax.swing.event.ListDataListener;
  * posici�n de los elementos en la lista, borrar elementos y a�adir nuevos.
  */
 public class ListaDeReproduccion implements ListModel<String> {
-	private static Logger logger = Logger.getLogger( ListaDeReproduccion.class.getName() );
+	private static Logger logger = Logger.getLogger(ListaDeReproduccion.class.getName());
+	private static final boolean ANYADIR_A_FIC_LOG = false; // poner true para no sobreescribir
+
+	static {
+		try {
+			logger.addHandler(new FileHandler(ListaDeReproduccion.class.getName() + ".log.xml", ANYADIR_A_FIC_LOG));
+		} catch (SecurityException | IOException e) {
+			logger.log(Level.SEVERE, "Error en creación fichero log");
+		}
+	}
+
 	ArrayList<File> ficherosLista; // ficheros de la lista de reproducci�n
 	int ficheroEnCurso = -1; // Fichero seleccionado (-1 si no hay ninguno seleccionado)
 
@@ -72,17 +86,6 @@ public class ListaDeReproduccion implements ListModel<String> {
 	}
 
 	/**
-	 * Anyade ficheros a la lista de reproduccion en las ultimas posiciones
-	 * siguiendo el orden pasado por parametro
-	 * 
-	 * @param files
-	 */
-	public void add(File... files) {
-		for (File f : files)
-			ficherosLista.add(f);
-	}
-
-	/**
 	 * Elimina el fichero indicado en la posicion pasada como parametro Si la
 	 * posicion no es una posicion valida no hace nada
 	 * 
@@ -130,15 +133,26 @@ public class ListaDeReproduccion implements ListModel<String> {
 	 * @return N�mero de ficheros que han sido a�adidos a la lista
 	 */
 	public int add(String carpetaFicheros, String filtroFicheros) {
-		logger.log( Level.INFO, "Añadiendo ficheros con filtro " + filtroFicheros );
+		logger.log(Level.INFO, "Añadiendo ficheros con filtro " + filtroFicheros);
 		// TODO: Codificar este m�todo de acuerdo a la pr�ctica (pasos 3 y sucesivos)
 		filtroFicheros = filtroFicheros.replaceAll("\\.", "\\\\."); // Pone el s�mbolo de la expresi�n regular \. donde
 																	// figure un .
 		filtroFicheros = filtroFicheros.replaceAll("\\*", "\\.*");
-		
-		logger.log( Level.INFO, "Añadiendo ficheros con filtro " + filtroFicheros );
-		
-		return 0;
+
+		logger.log(Level.INFO, "Añadiendo ficheros con filtro " + filtroFicheros);
+		Pattern filtro = Pattern.compile(filtroFicheros);
+		//FIXME
+		File fInic = new File(carpetaFicheros);
+		int cont = 0;
+		if (fInic.isDirectory()) {
+			for (File f : fInic.listFiles()) {
+				cont++;
+				logger.log(Level.FINE, "Procesando fichero " + f.getName());
+			}
+		}
+
+		return cont;
+
 	}
 
 	//
