@@ -2,6 +2,9 @@ package ud.prog3.pr01;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.ListModel;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
@@ -13,6 +16,7 @@ import javax.swing.event.ListDataListener;
  * posici�n de los elementos en la lista, borrar elementos y a�adir nuevos.
  */
 public class ListaDeReproduccion implements ListModel<String> {
+	private static Logger logger = Logger.getLogger( ListaDeReproduccion.class.getName() );
 	ArrayList<File> ficherosLista; // ficheros de la lista de reproducci�n
 	int ficheroEnCurso = -1; // Fichero seleccionado (-1 si no hay ninguno seleccionado)
 
@@ -126,9 +130,14 @@ public class ListaDeReproduccion implements ListModel<String> {
 	 * @return N�mero de ficheros que han sido a�adidos a la lista
 	 */
 	public int add(String carpetaFicheros, String filtroFicheros) {
+		logger.log( Level.INFO, "Añadiendo ficheros con filtro " + filtroFicheros );
 		// TODO: Codificar este m�todo de acuerdo a la pr�ctica (pasos 3 y sucesivos)
 		filtroFicheros = filtroFicheros.replaceAll("\\.", "\\\\."); // Pone el s�mbolo de la expresi�n regular \. donde
 																	// figure un .
+		filtroFicheros = filtroFicheros.replaceAll("\\*", "\\.*");
+		
+		logger.log( Level.INFO, "Añadiendo ficheros con filtro " + filtroFicheros );
+		
 		return 0;
 	}
 

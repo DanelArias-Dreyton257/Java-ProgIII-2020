@@ -82,10 +82,21 @@ public class ListaDeReproduccionTest {
 		lr2.removeFic(8475);
 		assertEquals(FIC_TEST4, lr2.getFic(3));
 	}
+
 	// Chequeo de funcionamiento correcto de size()
 	@Test
-	public void testSize(){
+	public void testSize() {
 		assertEquals(4, lr2.size());
+	}
+
+	@Test
+	public void addCarpeta() {
+		String carpetaTest = "test/res/";
+		String filtroTest = "*Pentatonix*.mp4";
+
+		ListaDeReproduccion lr = new ListaDeReproduccion();
+		lr.add(carpetaTest, filtroTest);
+		fail("Método sin acabar");
 	}
 
 }
