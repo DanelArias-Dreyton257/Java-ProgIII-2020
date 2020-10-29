@@ -100,7 +100,7 @@ public class ListaDeReproduccionTest {
 
 		ListaDeReproduccion lr = new ListaDeReproduccion();
 		lr.add(carpetaTest, filtroTest);
-		fail("Método sin acabar");
+		assertEquals(FIC_TEST1, lr.getFic(0));
 	}
 
 }

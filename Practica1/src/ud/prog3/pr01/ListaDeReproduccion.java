@@ -133,7 +133,7 @@ public class ListaDeReproduccion implements ListModel<String> {
 	 * @return N�mero de ficheros que han sido a�adidos a la lista
 	 */
 	public int add(String carpetaFicheros, String filtroFicheros) {
-		logger.log(Level.INFO, "Añadiendo ficheros con filtro " + filtroFicheros);
+		// logger.log(Level.INFO, "Añadiendo ficheros con filtro " + filtroFicheros);
 		// TODO: Codificar este m�todo de acuerdo a la pr�ctica (pasos 3 y sucesivos)
 		filtroFicheros = filtroFicheros.replaceAll("\\.", "\\\\."); // Pone el s�mbolo de la expresi�n regular \. donde
 																	// figure un .
@@ -141,15 +141,20 @@ public class ListaDeReproduccion implements ListModel<String> {
 
 		logger.log(Level.INFO, "Añadiendo ficheros con filtro " + filtroFicheros);
 
+		Pattern p = Pattern.compile(filtroFicheros); //FIXME
+
 		File fInic = new File(carpetaFicheros);
 		int cont = 0;
 		if (fInic.isDirectory()) {
 			for (File f : fInic.listFiles()) {
 				cont++;
 				logger.log(Level.FINE, "Procesando fichero: " + f.getName());
-				boolean filtro = Pattern.matches(filtroFicheros, f.getName());
+
+				boolean filtro = p.matcher(f.getName()).matches();
+
 				if (filtro) {
-					logger.log(Level.FINE, "Fichero: " + f.getName() + " cumple con el filtro");
+					logger.log(Level.FINE, "Fichero anyadido: " + f.getName() + " cumple con el filtro");
+					this.add(f);
 				} else {
 					logger.log(Level.SEVERE, "Fichero: " + f.getName() + " NO cumple con el filtro");
 				}

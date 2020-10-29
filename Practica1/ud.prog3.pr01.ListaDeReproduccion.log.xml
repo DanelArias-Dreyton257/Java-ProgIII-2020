@@ -2,33 +2,33 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2020-10-29T15:16:27.904847200Z</date>
-  <millis>1603984587904</millis>
-  <nanos>847200</nanos>
+  <date>2020-10-29T15:34:50.917804800Z</date>
+  <millis>1603985690917</millis>
+  <nanos>804800</nanos>
   <sequence>0</sequence>
   <logger>ud.prog3.pr01.ListaDeReproduccion</logger>
   <level>INFO</level>
   <class>ud.prog3.pr01.ListaDeReproduccion</class>
   <method>add</method>
   <thread>1</thread>
-  <message>Añadiendo ficheros con filtro *Pentatonix*.mp4</message>
+  <message>Añadiendo ficheros con filtro \.*Pentatonix\.*\.mp4</message>
 </record>
 <record>
-  <date>2020-10-29T15:16:27.942806400Z</date>
-  <millis>1603984587942</millis>
-  <nanos>806400</nanos>
+  <date>2020-10-29T15:34:50.953785800Z</date>
+  <millis>1603985690953</millis>
+  <nanos>785800</nanos>
   <sequence>1</sequence>
   <logger>ud.prog3.pr01.ListaDeReproduccion</logger>
-  <level>INFO</level>
+  <level>SEVERE</level>
   <class>ud.prog3.pr01.ListaDeReproduccion</class>
   <method>add</method>
   <thread>1</thread>
-  <message>Añadiendo ficheros con filtro .*Pentatonix.*\.mp4</message>
+  <message>Fichero: Fichero erroneo Pentatonix.mp4 NO cumple con el filtro</message>
 </record>
 <record>
-  <date>2020-10-29T15:16:27.943805400Z</date>
-  <millis>1603984587943</millis>
-  <nanos>805400</nanos>
+  <date>2020-10-29T15:34:50.954785900Z</date>
+  <millis>1603985690954</millis>
+  <nanos>785900</nanos>
   <sequence>2</sequence>
   <logger>ud.prog3.pr01.ListaDeReproduccion</logger>
   <level>SEVERE</level>
@@ -38,9 +38,9 @@
   <message>Fichero: Fichero Pentatonix no video.txt NO cumple con el filtro</message>
 </record>
 <record>
-  <date>2020-10-29T15:16:27.944805500Z</date>
-  <millis>1603984587944</millis>
-  <nanos>805500</nanos>
+  <date>2020-10-29T15:34:50.954785900Z</date>
+  <millis>1603985690954</millis>
+  <nanos>785900</nanos>
   <sequence>3</sequence>
   <logger>ud.prog3.pr01.ListaDeReproduccion</logger>
   <level>SEVERE</level>
@@ -48,5 +48,29 @@
   <method>add</method>
   <thread>1</thread>
   <message>Fichero: No del grupo.mp4 NO cumple con el filtro</message>
+</record>
+<record>
+  <date>2020-10-29T15:34:50.955784900Z</date>
+  <millis>1603985690955</millis>
+  <nanos>784900</nanos>
+  <sequence>4</sequence>
+  <logger>ud.prog3.pr01.ListaDeReproduccion</logger>
+  <level>SEVERE</level>
+  <class>ud.prog3.pr01.ListaDeReproduccion</class>
+  <method>add</method>
+  <thread>1</thread>
+  <message>Fichero: [Official Video] Daft Punk - Pentatonix.mp4 NO cumple con el filtro</message>
+</record>
+<record>
+  <date>2020-10-29T15:34:50.955784900Z</date>
+  <millis>1603985690955</millis>
+  <nanos>784900</nanos>
+  <sequence>5</sequence>
+  <logger>ud.prog3.pr01.ListaDeReproduccion</logger>
+  <level>SEVERE</level>
+  <class>ud.prog3.pr01.ListaDeReproduccion</class>
+  <method>add</method>
+  <thread>1</thread>
+  <message>Fichero: [Official Video] I Need Your Love - Pentatonix (Calvin Harris feat. Ellie Goulding Cover).mp4 NO cumple con el filtro</message>
 </record>
 </log>
