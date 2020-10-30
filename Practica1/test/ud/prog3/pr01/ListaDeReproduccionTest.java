@@ -9,9 +9,9 @@ import org.junit.*;
 public class ListaDeReproduccionTest {
 	private ListaDeReproduccion lr1;
 	private ListaDeReproduccion lr2;
-	private final File FIC_TEST1 = new File("test/res/No del grupo.mp4");
-	private final File FIC_TEST2 = new File("test/res/No del grupo.mp4");
-	private final File FIC_TEST3 = new File("test/res/No del grupo.mp4");
+	private final File FIC_TEST1 = new File("test/res/[Official Video] Daft Punk - Pentatonix.mp4");
+	private final File FIC_TEST2 = new File("test/res/[Official Video] I Need Your Love - Pentatonix (Calvin Harris feat. Ellie Goulding Cover).mp4");
+	private final File FIC_TEST3 = new File("test/res/Fichero erroneo Pentatonix.mp4");
 	private final File FIC_TEST4 = new File("test/res/No del grupo.mp4");
 
 	@Before
@@ -92,15 +92,22 @@ public class ListaDeReproduccionTest {
 	public void testSize() {
 		assertEquals(4, lr2.size());
 	}
-
+	// Chequeo de funcionamiento correcto de add cuando se le envia un directorio como parametro
 	@Test
-	public void addCarpeta() {
+	public void testaddCarpeta() {
 		String carpetaTest = "test/res/";
 		String filtroTest = "*Pentatonix*.mp4";
 
 		ListaDeReproduccion lr = new ListaDeReproduccion();
 		lr.add(carpetaTest, filtroTest);
-		assertEquals(FIC_TEST1, lr.getFic(0));
+		assertEquals(FIC_TEST3, lr.getFic(0));
+		assertEquals(FIC_TEST1, lr.getFic(1));
+		assertEquals(FIC_TEST2, lr.getFic(2));
+	}
+	//chequeo de funcionamiento de iARandom();
+	@Test
+	public void testARandom() {
+		assertTrue(lr2.irARandom());
 	}
 
 }

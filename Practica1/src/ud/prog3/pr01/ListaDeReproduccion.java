@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
+import java.util.Random;
 
 import javax.swing.ListModel;
 import javax.swing.event.ListDataEvent;
@@ -141,7 +142,7 @@ public class ListaDeReproduccion implements ListModel<String> {
 
 		logger.log(Level.INFO, "Añadiendo ficheros con filtro " + filtroFicheros);
 
-		Pattern p = Pattern.compile(filtroFicheros); //FIXME
+		Pattern p = Pattern.compile(filtroFicheros); // FIXME
 
 		File fInic = new File(carpetaFicheros);
 		int cont = 0;
@@ -153,7 +154,7 @@ public class ListaDeReproduccion implements ListModel<String> {
 				boolean filtro = p.matcher(f.getName()).matches();
 
 				if (filtro) {
-					logger.log(Level.FINE, "Fichero anyadido: " + f.getName() + " cumple con el filtro");
+					logger.log(Level.INFO, "Fichero anyadido: " + f.getName() + " cumple con el filtro");
 					this.add(f);
 				} else {
 					logger.log(Level.SEVERE, "Fichero: " + f.getName() + " NO cumple con el filtro");
@@ -225,6 +226,21 @@ public class ListaDeReproduccion implements ListModel<String> {
 			ficheroEnCurso = -1; // Si no se encuentra, no hay selecci�n
 			return false; // Y devuelve error
 		}
+		return true;
+	}
+
+	/**
+	 * Selecciona un fichero aleatorio de la lista de reproducción.
+	 * 
+	 * @return true si la selección es correcta, false si hay error y no se puede
+	 *         seleccionar
+	 */
+	public boolean irARandom() {
+		Random r = new Random();
+		if (this.ficherosLista.isEmpty())
+			return false;
+		int i = r.nextInt(this.size());
+		ficheroEnCurso = i;
 		return true;
 	}
 
