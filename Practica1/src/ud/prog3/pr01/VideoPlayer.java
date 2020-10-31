@@ -4,8 +4,18 @@ import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
+import javax.swing.text.DateFormatter;
 
 import java.io.File;
+import java.io.FileFilter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
@@ -93,8 +103,7 @@ public class VideoPlayer extends JFrame {
 				if (fPath == null)
 					return;
 				path = fPath.getAbsolutePath();
-				// TODO: pedir ficheros por ventana de entrada (JOptionPane)
-				// ficheros = ...
+				ficheros = "*.mp4";
 				listaRepVideos.add(path, ficheros);
 				lCanciones.repaint();
 			}
@@ -128,9 +137,9 @@ public class VideoPlayer extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (mediaPlayerComponent.getMediaPlayer().isPlayable()) {
 					if (mediaPlayerComponent.getMediaPlayer().isPlaying()) {
-						// TODO: hacer pausa
+						mediaPlayerComponent.getMediaPlayer().pause();
 					} else {
-						// TODO: hacer play
+						mediaPlayerComponent.getMediaPlayer().play();
 					}
 				} else {
 					lanzaVideo();
@@ -205,6 +214,9 @@ public class VideoPlayer extends JFrame {
 	private void lanzaVideo() {
 		if (mediaPlayerComponent.getMediaPlayer() != null && listaRepVideos.getFicSeleccionado() != -1) {
 			File ficVideo = listaRepVideos.getFic(listaRepVideos.getFicSeleccionado());
+			Date dt = new Date(ficVideo.lastModified());
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			lMensaje.setText(sdf.format(dt));
 			mediaPlayerComponent.getMediaPlayer().playMedia(ficVideo.getAbsolutePath());
 			lCanciones.setSelectedIndex(listaRepVideos.getFicSeleccionado());
 		} else {
@@ -215,8 +227,14 @@ public class VideoPlayer extends JFrame {
 	// Pide interactivamente una carpeta para coger v�deos
 	// (null si no se selecciona)
 	private static File pedirCarpeta() {
-		// TODO: Pedir la carpeta usando JFileChooser
-		return null;
+		JFileChooser fChooser = new JFileChooser();
+		fChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		File selectedFile = null;
+		int returnValue = fChooser.showOpenDialog(miVentana);
+		if (returnValue == JFileChooser.APPROVE_OPTION) {
+			selectedFile = fChooser.getSelectedFile();
+		}
+		return selectedFile;
 	}
 
 	private static String ficheros;
@@ -233,12 +251,13 @@ public class VideoPlayer extends JFrame {
 	 */
 	public static void main(String[] args) {
 		// Para probar carga interactiva descomentar o comentar la l�nea siguiente:
-		args = new String[] { "*Pentatonix*.mp4", "test/res/" };
+		// args = new String[] { "*Pentatonix*.mp4", "test/res/" };
 		if (args.length < 2) {
 			// No hay argumentos: selecci�n manual
 			File fPath = pedirCarpeta();
 			if (fPath == null)
 				return;
+			ficheros = "*.mp4";
 			path = fPath.getAbsolutePath();
 			// TODO : Petici�n manual de ficheros con comodines (showInputDialog)
 			// ficheros = ???
