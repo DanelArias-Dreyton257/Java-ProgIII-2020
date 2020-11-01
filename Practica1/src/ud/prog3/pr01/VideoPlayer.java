@@ -4,20 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
-import javax.swing.text.DateFormatter;
 
 import java.io.File;
-import java.io.FileFilter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
-import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 import uk.co.caprica.vlcj.discovery.NativeDiscovery;
 import uk.co.caprica.vlcj.player.MediaPlayer;
@@ -103,7 +94,7 @@ public class VideoPlayer extends JFrame {
 				if (fPath == null)
 					return;
 				path = fPath.getAbsolutePath();
-				ficheros = "*.mp4";
+				ficheros = JOptionPane.showInputDialog(null, "Patron de los ficheros (* para cualquier cadena de caracteres)", "Selecciona ficheros", JOptionPane.QUESTION_MESSAGE);
 				listaRepVideos.add(path, ficheros);
 				lCanciones.repaint();
 			}
@@ -251,16 +242,15 @@ public class VideoPlayer extends JFrame {
 	 */
 	public static void main(String[] args) {
 		// Para probar carga interactiva descomentar o comentar la l�nea siguiente:
-		// args = new String[] { "*Pentatonix*.mp4", "test/res/" };
+		//args = new String[] { "*Pentatonix*.mp4", "test/res/" };
 		if (args.length < 2) {
 			// No hay argumentos: selecci�n manual
 			File fPath = pedirCarpeta();
 			if (fPath == null)
 				return;
-			ficheros = "*.mp4";
+			
 			path = fPath.getAbsolutePath();
-			// TODO : Petici�n manual de ficheros con comodines (showInputDialog)
-			// ficheros = ???
+			ficheros = JOptionPane.showInputDialog(null, "Patron de los ficheros (* para cualquier cadena de caracteres)", "Selecciona ficheros", JOptionPane.QUESTION_MESSAGE);
 		} else {
 			ficheros = args[0];
 			path = args[1];
@@ -288,9 +278,8 @@ public class VideoPlayer extends JFrame {
 			public void run() {
 				miVentana = new VideoPlayer();
 				// Descomentar estas dos l�neas para ver un v�deo de ejemplo
-				// miVentana.listaRepVideos.ficherosLista = new ArrayList<File>();
-				// miVentana.listaRepVideos.ficherosLista.add( new File("test/res/[Official
-				// Video] Daft Punk - Pentatonix.mp4") );
+				//miVentana.listaRepVideos.ficherosLista = new ArrayList<File>();
+				//miVentana.listaRepVideos.ficherosLista.add( new File("C:\\Users\\danel\\Downloads\\prueba.mp4") );
 				miVentana.setVisible(true);
 				miVentana.listaRepVideos.add(path, ficheros);
 				miVentana.listaRepVideos.irAPrimero();
