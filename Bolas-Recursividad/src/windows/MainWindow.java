@@ -4,6 +4,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -23,15 +24,9 @@ public class MainWindow extends JFrame {
 
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
-		Rectangle r = new Rectangle(50, 50, 80,10);
-		Circle c = new Circle(50, 50, 90);
-		
-		getContentPane().add(c.getComponent());
-		//getContentPane().add(r.getComponent());
-		
-		setLocationByPlatform(true);
-		
-		//pnMain.add(r.getComponent());
+		Rectangle r = new Rectangle(250, 250, 80,100);
+		Circle c = new Circle(250, 250, 100);
+		getContentPane().add(r.getComponent());
 		
 	}
 

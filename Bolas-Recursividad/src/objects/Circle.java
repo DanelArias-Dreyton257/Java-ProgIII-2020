@@ -31,8 +31,12 @@ public class Circle extends PhysicsObject {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
+
 				g.setColor(color);
-				g.fillOval(pos.x, pos.y, 2 * rad, 2 * rad);
+				g.fillOval(pos.x - rad, pos.y - rad, 2 * rad, 2 * rad);
+
+				g.setColor(Color.BLACK);
+				g.drawOval(pos.x - rad, pos.y - rad, 2 * rad, 2 * rad);
 			}
 		};
 	}

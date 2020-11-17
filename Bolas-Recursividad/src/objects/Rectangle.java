@@ -44,8 +44,14 @@ public class Rectangle extends PhysicsObject {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
+
 				g.setColor(color);
-				g.fillRect(pos.x, pos.y, (int) dim.getWidth(), (int) dim.getHeight());
+				g.fillRect(pos.x - (int) (dim.getWidth() / 2), pos.y - (int) (dim.getHeight() / 2),
+						(int) dim.getWidth(), (int) dim.getHeight());
+
+				g.setColor(Color.BLACK);
+				g.drawRect(pos.x - (int) (dim.getWidth() / 2), pos.y - (int) (dim.getHeight() / 2),
+						(int) dim.getWidth(), (int) dim.getHeight());
 			}
 		};
 	}
