@@ -2,9 +2,11 @@ package objects;
 
 import java.awt.Point;
 
-public abstract class PhysicsObject {
-	private Point pos = new Point();
-	private Point vel = new Point();
+import interfaces.Visualizable;
+
+public abstract class PhysicsObject implements Visualizable{
+	protected Point pos = new Point();
+	protected Point vel = new Point();
 
 	public int getX() {
 		return pos.x;
