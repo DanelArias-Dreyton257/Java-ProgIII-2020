@@ -16,7 +16,20 @@ public class Usuario implements Comparable<Usuario> {
 	private String tweetId = ""; // identificador de tuit (ignorarlo)
 	private ArrayList<String> friends = new ArrayList<>();// - lista de amigos (expresados como ids de usuarios)
 	private long friendsInCSVCount = 0;
-
+	
+	/**
+	 * Constructor de usuario con todas sus caracteristicas
+	 * @param id
+	 * @param screenName
+	 * @param tags
+	 * @param avatar
+	 * @param followersCount
+	 * @param friendsCount
+	 * @param lang
+	 * @param lastSeen
+	 * @param tweetId
+	 * @param friends
+	 */
 	public Usuario(String id, String screenName, ArrayList<String> tags, String avatar, long followersCount,
 			long friendsCount, String lang, long lastSeen, String tweetId, ArrayList<String> friends) {
 		setId(id);
@@ -124,6 +137,11 @@ public class Usuario implements Comparable<Usuario> {
 	}
 
 	@SuppressWarnings("unchecked")
+	/**
+	 * Metodo que permite cargar un usuario con un arraylist proporcionada con toda la informacion
+	 * @param info
+	 * @return
+	 */
 	public static Usuario usuarioDesdeArrayList(ArrayList<Object> info) {
 		Usuario user = null;
 		try {
@@ -146,6 +164,9 @@ public class Usuario implements Comparable<Usuario> {
 	}
 
 	@Override
+	/**
+	 * Compare to que compara segun los amigos que se pueden encontrar en el dataset
+	 */
 	public int compareTo(Usuario o) {
 		return (int) (o.friendsInCSVCount - this.friendsInCSVCount);
 	}
@@ -230,7 +251,10 @@ public class Usuario implements Comparable<Usuario> {
 				+ ", lastSeen=" + lastSeen + ", tweetId=" + tweetId + ", friends=" + friends + ", friendsInCSVCount="
 				+ friendsInCSVCount + "]";
 	}
-
+	/**
+	 * Devuelve un string que tambien muesra los nicks de los amigos
+	 * @return
+	 */
 	public String toStringAmigos() {
 		ArrayList<String> nicks = new ArrayList<String>();
 		for (String id : friends) {
