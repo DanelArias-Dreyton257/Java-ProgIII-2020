@@ -1,7 +1,10 @@
+package fuentes;
 
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
+
+import objetos.Usuario;
 
 /**
  * Clase para proceso básico de ficheros csv
@@ -54,8 +57,10 @@ public class CSV {
 					System.out.println(numLine + "\t" + line);
 				try {
 					ArrayList<Object> l = processCSVLine(input, line, numLine);
-					if (LOG_CONSOLE_CSV)
+
+					if (LOG_CONSOLE_CSV) {
 						System.out.println("\t" + l.size() + "\t" + l);
+					}
 					if (numLine == 1) {
 						procesaCabeceras(l);
 					} else {
@@ -247,7 +252,24 @@ public class CSV {
 	private static void procesaLineaDatos(ArrayList<Object> datos) {
 		// TODO Cambiar este proceso si se quiere hacer algo con las cabeceras
 		numLin++;
-		System.out.println(numLin + "\t" + datos); // Saca la cabecera por consola de error
+		// System.out.println(numLin + "\t" + datos); // Saca la cabecera por consola de
+		// error
+
+		Usuario current = Usuario.usuarioDesdeArrayList(datos);
+		GestionTwitter.anyadeUsuarioAMapa(current);
+
+		// Muestra una bonica forma de ver que se va cargando
+		// He intentado que se elimine la linea anterior para que no este pegando saltos
+		// la consola pero me ha sido imposible :(
+
+		double porc = (numLin * 100.0) / 40000.0;
+		if (porc % 1 == 0) {
+			System.out.println(porc + "%");
+			for (int i = 0; i < porc; i++) {
+				System.out.print("=");
+			}
+			System.out.println(">");
+		}
 	}
 
 }
