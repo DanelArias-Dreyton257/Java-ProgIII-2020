@@ -80,12 +80,18 @@ public class SortingManager {
 	}
 
 	public static int[] createRandomIntArray(int minNum, int maxNum, int numPos) {
-		int[] arr = new int[numPos];
-		for (int i = 0; i < numPos; i++) {
+		return createRandomIntArray(minNum, maxNum, 0, new int[numPos]);
+	}
+	
+	private static int[] createRandomIntArray(int minNum, int maxNum, int i, int[] arr) {
+		if (i<0 || i>=arr.length) {
+			return arr;
+		}
+		else {
 			java.util.Random r = new java.util.Random();
 			arr[i] = r.nextInt(maxNum - minNum + 1) + minNum;
+			return createRandomIntArray(minNum,maxNum,i+1,arr);
 		}
-		return arr;
 	}
 
 	public static int[] createRandomIntArray(int numPos) {
@@ -95,8 +101,8 @@ public class SortingManager {
 	public static void main(String[] args) {
 		int[] a = createRandomIntArray(25);
 		System.out.println(Arrays.toString(a));
-		// System.out.println(Arrays.toString(SortingManager.insertionSort(a)));
-		System.out.println(Arrays.toString(SortingManager.selectionSortR(a)));
+		System.out.println(Arrays.toString(SortingManager.insertionSort(a)));
+		// System.out.println(Arrays.toString(SortingManager.selectionSortR(a)));
 	}
 
 }
