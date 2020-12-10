@@ -62,6 +62,8 @@ public class BD {
 	public static void updateCont(Counter ct, String tipo) {
 
 		if (tipo.equals(LISTADO) || tipo.equals(CAPICUA) || tipo.equals(CLICK)) {
+			
+			int n = (ct.getCount()+selectCont(tipo));
 
 			Connection conn = null;
 
@@ -71,7 +73,7 @@ public class BD {
 
 				Statement stmt = conn.createStatement();
 				stmt.executeUpdate(
-						"UPDATE ANALITICA SET CONTADOR = "+ct.getCount()+" WHERE CODIGO='"+tipo+"';");
+						"UPDATE ANALITICA SET CONTADOR = "+n+" WHERE CODIGO='"+tipo+"';");
 
 				stmt.close();
 

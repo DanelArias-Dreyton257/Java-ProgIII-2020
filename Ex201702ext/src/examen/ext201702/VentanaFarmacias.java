@@ -62,9 +62,15 @@ public class VentanaFarmacias extends JFrame {
 		lReloj.setFont( fontReloj );
 
 		initFormatoTabla();
+		
+		
+		
 		addWindowListener( new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
+				BD.updateCont(ctListado, BD.LISTADO);
+				BD.updateCont(ctCapicua, BD.CAPICUA);
+				BD.updateCont(ctReloj, BD.CLICK);
 				cerrar();
 			}
 		});
@@ -158,6 +164,9 @@ public class VentanaFarmacias extends JFrame {
 			Main.actualizaFarmaciasEnPantalla();
 			cargaFarmaciasEnTabla( null );
 			actualizarReloj();
+			
+			//mensajitoclick(); //TAREA 2 ---------------------------------------------------------------------
+			
 		}
 	
 	private void cerrar() {
@@ -327,5 +336,7 @@ public class VentanaFarmacias extends JFrame {
 			SwingUtilities.invokeLater( r );
 		}
 	}
-	
+	private void mensajitoclick() {
+		taMensajes.setText("Listado: "+(BD.selectCont(BD.LISTADO)+ctListado.getCount())+", Capicua: "+(BD.selectCont(BD.CAPICUA)+ctCapicua.getCount())+", Reloj: "+(BD.selectCont(BD.CLICK)+ctReloj.getCount()));
+	}
 }

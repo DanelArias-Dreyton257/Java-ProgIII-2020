@@ -1,6 +1,7 @@
 package examen.ext201702;
 
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 import examen.ext201702.gui.*;
 
@@ -48,8 +49,9 @@ public class PruebaEficienciaMapaFarmacias {
 		// busca la farmacia de prueba, y busca el número indicado de farmacias con dirección falsa
 		// (construido como "Falsa 1", "Falsa 2", etc.)
 		@Override
-		public Object test() {  
-			ArrayList<FarmaciaGuardia> lista = mapa.getMapaFarmacias().get( "Bilbao" );
+		public Object test() {
+			MapaFarmaciasOrdenadas mapaO = new MapaFarmaciasOrdenadas(mapa);
+			TreeSet<FarmaciaGuardia> lista = mapaO.getMapaOrd().get( "Bilbao" );
 			boolean esta1 = lista.contains( farmaciaPrueba1 );
 			boolean esta2 = false;
 			FarmaciaGuardia farmaciaPrueba2 = new FarmaciaGuardia( "Bilbao", "09:00-22:00", "(Albia)  Buenos Aires, 13  |  94 4444444" );  // No está
@@ -58,7 +60,7 @@ public class PruebaEficienciaMapaFarmacias {
 				esta2 = esta2 || lista.contains( farmaciaPrueba2 );
 			}
 			System.out.println( esta1 && esta2 );
-			return mapa.getMapaFarmacias();
+			return mapaO.getMapaOrd();
 		}
 
 	}
