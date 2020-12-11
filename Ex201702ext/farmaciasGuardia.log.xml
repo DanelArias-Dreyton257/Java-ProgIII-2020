@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-12-11T08:16:32.269814700Z</date>
+  <millis>1607674592269</millis>
+  <nanos>814700</nanos>
+  <sequence>0</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Inicio de ejecución de Main</message>
+</record>
+<record>
+  <date>2020-12-11T08:16:32.845574800Z</date>
+  <millis>1607674592845</millis>
+  <nanos>574800</nanos>
+  <sequence>1</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.MapaFarmacias</class>
+  <method>saveToFile</method>
+  <thread>1</thread>
+  <message>Guardado fichero de farmacias de 11/12</message>
+</record>
+<record>
+  <date>2020-12-11T08:16:41.912544700Z</date>
+  <millis>1607674601912</millis>
+  <nanos>544700</nanos>
+  <sequence>2</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main$HiloCambioPantalla</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Hilo de cambio de pantalla interrumpido</message>
+</record>
+<record>
+  <date>2020-12-11T08:16:41.913545600Z</date>
+  <millis>1607674601913</millis>
+  <nanos>545600</nanos>
+  <sequence>3</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main$HiloCambioPantalla</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Final de hilo de actualizaci�n de pantalla</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-12-11T08:16:59.046209200Z</date>
+  <millis>1607674619046</millis>
+  <nanos>209200</nanos>
+  <sequence>0</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Inicio de ejecución de Main</message>
+</record>
+<record>
+  <date>2020-12-11T08:16:59.625845700Z</date>
+  <millis>1607674619625</millis>
+  <nanos>845700</nanos>
+  <sequence>1</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.MapaFarmacias</class>
+  <method>saveToFile</method>
+  <thread>1</thread>
+  <message>Guardado fichero de farmacias de 11/12</message>
+</record>
+<record>
+  <date>2020-12-11T08:17:17.870713600Z</date>
+  <millis>1607674637870</millis>
+  <nanos>713600</nanos>
+  <sequence>2</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main$HiloCambioPantalla</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Hilo de cambio de pantalla interrumpido</message>
+</record>
+<record>
+  <date>2020-12-11T08:17:17.871713400Z</date>
+  <millis>1607674637871</millis>
+  <nanos>713400</nanos>
+  <sequence>3</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main$HiloCambioPantalla</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Final de hilo de actualizaci�n de pantalla</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-12-11T08:17:21.619869200Z</date>
+  <millis>1607674641619</millis>
+  <nanos>869200</nanos>
+  <sequence>0</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Inicio de ejecución de Main</message>
+</record>
+<record>
+  <date>2020-12-11T08:17:22.171929200Z</date>
+  <millis>1607674642171</millis>
+  <nanos>929200</nanos>
+  <sequence>1</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.MapaFarmacias</class>
+  <method>saveToFile</method>
+  <thread>1</thread>
+  <message>Guardado fichero de farmacias de 11/12</message>
+</record>
+<record>
+  <date>2020-12-11T08:18:28.308375Z</date>
+  <millis>1607674708308</millis>
+  <nanos>375000</nanos>
+  <sequence>2</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.MapaFarmacias</class>
+  <method>saveToFile</method>
+  <thread>25</thread>
+  <message>Guardado fichero de farmacias de 11/12</message>
+</record>
+<record>
+  <date>2020-12-11T08:18:53.430960Z</date>
+  <millis>1607674733430</millis>
+  <nanos>960000</nanos>
+  <sequence>3</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main$HiloCambioPantalla</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Hilo de cambio de pantalla interrumpido</message>
+</record>
+<record>
+  <date>2020-12-11T08:18:53.431960600Z</date>
+  <millis>1607674733431</millis>
+  <nanos>960600</nanos>
+  <sequence>4</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main$HiloCambioPantalla</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Final de hilo de actualizaci�n de pantalla</message>
+</record>
+</log>

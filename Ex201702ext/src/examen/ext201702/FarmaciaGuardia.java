@@ -301,9 +301,9 @@ public class FarmaciaGuardia implements Serializable, Comparable<FarmaciaGuardia
 			c = s.charAt(pos)+"";
 		}
 		
-		System.out.println(izq+" "+der);
 		return codificarDir(c,izq,der);
 	}
+	
 	private static String codificarDir(String acum, String izq,String der) {
 		if (izq.length()>0 && der.length()>0) {
 			char d = der.charAt(0);
