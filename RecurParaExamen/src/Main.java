@@ -2,7 +2,7 @@
 public class Main {
 	
 	public static void main(String[] args) {
-		combi2(2,1);
+		combi2(26,2);
 	}
 	
 	public static void combi(int lon) {
