@@ -253,7 +253,7 @@ public class CSV {
 		// System.out.println(numLin + "\t" + datos); // Saca la cabecera por consola de
 		// error
 
-		Usuario current = Usuario.usuarioDesdeArrayList(datos);
+		UsuarioTwitter current = UsuarioTwitter.usuarioDesdeArrayList(datos);
 		GestionTwitter.anyadeUsuarioAMapa(current);
 
 		// Muestra una bonica forma de ver que se va cargando

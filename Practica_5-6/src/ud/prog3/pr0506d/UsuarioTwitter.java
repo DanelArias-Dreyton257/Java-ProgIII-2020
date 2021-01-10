@@ -2,7 +2,7 @@ package ud.prog3.pr0506d;
 
 import java.util.ArrayList;
 
-public class Usuario implements Comparable<Usuario> {
+public class UsuarioTwitter implements Comparable<UsuarioTwitter> {
 	private String id = "";// identificador único de cada usuario
 	private String screenName = ""; // nick de twitter (sin la arroba)
 	private ArrayList<String> tags = new ArrayList<>();// lista de etiquetas
@@ -28,7 +28,7 @@ public class Usuario implements Comparable<Usuario> {
 	 * @param tweetId
 	 * @param friends
 	 */
-	public Usuario(String id, String screenName, ArrayList<String> tags, String avatar, long followersCount,
+	public UsuarioTwitter(String id, String screenName, ArrayList<String> tags, String avatar, long followersCount,
 			long friendsCount, String lang, long lastSeen, String tweetId, ArrayList<String> friends) {
 		setId(id);
 		setScreenName(screenName);
@@ -42,7 +42,7 @@ public class Usuario implements Comparable<Usuario> {
 		setFriends(friends);
 	}
 
-	private Usuario() {
+	private UsuarioTwitter() {
 
 	}
 
@@ -140,10 +140,10 @@ public class Usuario implements Comparable<Usuario> {
 	 * @param info
 	 * @return
 	 */
-	public static Usuario usuarioDesdeArrayList(ArrayList<Object> info) {
-		Usuario user = null;
+	public static UsuarioTwitter usuarioDesdeArrayList(ArrayList<Object> info) {
+		UsuarioTwitter user = null;
 		try {
-			user = new Usuario();
+			user = new UsuarioTwitter();
 			user.setId((String) info.get(0));
 			user.setScreenName((String) info.get(1));
 			user.setTags((ArrayList<String>) info.get(2));
@@ -165,7 +165,7 @@ public class Usuario implements Comparable<Usuario> {
 	/**
 	 * Compare to que compara segun los amigos que se pueden encontrar en el dataset
 	 */
-	public int compareTo(Usuario o) {
+	public int compareTo(UsuarioTwitter o) {
 		return (int) (o.friendsInCSVCount - this.friendsInCSVCount);
 	}
 
@@ -195,7 +195,7 @@ public class Usuario implements Comparable<Usuario> {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Usuario other = (Usuario) obj;
+		UsuarioTwitter other = (UsuarioTwitter) obj;
 		if (avatar == null) {
 			if (other.avatar != null)
 				return false;
@@ -256,7 +256,7 @@ public class Usuario implements Comparable<Usuario> {
 	public String toStringAmigos() {
 		ArrayList<String> nicks = new ArrayList<String>();
 		for (String id : friends) {
-			Usuario u = GestionTwitter.mapaUsersID.get(id);
+			UsuarioTwitter u = GestionTwitter.mapaUsersID.get(id);
 			if (u != null) {
 				nicks.add(u.getScreenName());
 			}

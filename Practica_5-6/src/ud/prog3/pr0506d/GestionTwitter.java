@@ -8,9 +8,9 @@ import java.util.TreeSet;
 
 
 public class GestionTwitter {
-	public static HashMap<String, Usuario> mapaUsersID = new HashMap<>();
-	public static HashMap<String, Usuario> mapaUsersNick = new HashMap<>();
-	public static TreeSet<Usuario> treeSetAmigos = new TreeSet<>();
+	public static HashMap<String, UsuarioTwitter> mapaUsersID = new HashMap<>();
+	public static HashMap<String, UsuarioTwitter> mapaUsersNick = new HashMap<>();
+	public static TreeSet<UsuarioTwitter> treeSetAmigos = new TreeSet<>();
 
 	public static void main(String[] args) {
 		try {
@@ -28,6 +28,8 @@ public class GestionTwitter {
 		printUsuarioBuscadoRecur("TouchOfMyHand");
 
 		printNvAmigos(mapaUsersNick.get("zulfimohdali"), 2);
+		
+		new VenPr0506().setVisible(true);
 
 	}
 
@@ -37,8 +39,8 @@ public class GestionTwitter {
 	 * aparezca en el dataset
 	 */
 	private static void anyadirUsuariosATreeSet() {
-		for (Entry<String, Usuario> set : mapaUsersNick.entrySet()) {
-			Usuario u = set.getValue();
+		for (Entry<String, UsuarioTwitter> set : mapaUsersNick.entrySet()) {
+			UsuarioTwitter u = set.getValue();
 			if (u.getFriendsInCSVCount() > 0) {
 				treeSetAmigos.add(u);
 			}
@@ -69,14 +71,14 @@ public class GestionTwitter {
 	 * @param adelantado usuario que sabemos que posterior en el treeset
 	 * @param nick
 	 */
-	private static void printUsuarioBuscadoRecur(Usuario anterior, Usuario adelantado, String nick) {
+	private static void printUsuarioBuscadoRecur(UsuarioTwitter anterior, UsuarioTwitter adelantado, String nick) {
 		if (nick.equals(anterior.getScreenName())) {
 			System.out.println(anterior.toStringAmigos());
 		} else if (nick.equals(adelantado.getScreenName())) {
 			System.out.println(adelantado.toStringAmigos());
 		} else {
-			Usuario nextAnterior = treeSetAmigos.lower(anterior);
-			Usuario prevAdelantado = treeSetAmigos.higher(adelantado);
+			UsuarioTwitter nextAnterior = treeSetAmigos.lower(anterior);
+			UsuarioTwitter prevAdelantado = treeSetAmigos.higher(adelantado);
 			printUsuarioBuscadoRecur(nextAnterior, prevAdelantado, nick);
 		}
 	}
@@ -88,8 +90,8 @@ public class GestionTwitter {
 	 */
 	private static void calcularAmigosEnMapa() {
 
-		for (Entry<String, Usuario> set : mapaUsersNick.entrySet()) {
-			Usuario u = set.getValue();
+		for (Entry<String, UsuarioTwitter> set : mapaUsersNick.entrySet()) {
+			UsuarioTwitter u = set.getValue();
 			int userCount = 0;
 			for (String friendID : u.getFriends()) {
 				if (mapaUsersID.containsKey(friendID)) {
@@ -106,7 +108,7 @@ public class GestionTwitter {
 	 * 
 	 * @param us
 	 */
-	public static void anyadeUsuarioAMapa(Usuario us) {
+	public static void anyadeUsuarioAMapa(UsuarioTwitter us) {
 		if (us != null) {
 			if (mapaUsersID.containsKey(us.getId()))
 				System.err.println("ID REPETIDO usuario no introducido en el mapa");
@@ -127,7 +129,7 @@ public class GestionTwitter {
 	 * @param user
 	 * @param nv
 	 */
-	private static void printNvAmigos(Usuario user, int nv) {
+	private static void printNvAmigos(UsuarioTwitter user, int nv) {
 		System.out.println(user.getScreenName() + " amigos de nv:" + nv);
 		TreeSet<String> amigos = printNvAmigosRecur(user, nv, 0, new TreeSet<String>(new Comparator<String>() {
 			@Override
@@ -156,7 +158,7 @@ public class GestionTwitter {
 	 * @param amigos
 	 * @return
 	 */
-	private static TreeSet<String> printNvAmigosRecur(Usuario cuser, int nv, int acc, TreeSet<String> amigos) {
+	private static TreeSet<String> printNvAmigosRecur(UsuarioTwitter cuser, int nv, int acc, TreeSet<String> amigos) {
 		if (nv <= acc) {
 			amigos.add(cuser.getScreenName());
 			return amigos;
