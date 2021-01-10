@@ -166,3 +166,169 @@
   <message>Final de hilo de actualizaci�n de pantalla</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-10T19:16:10.938952900Z</date>
+  <millis>1610306170938</millis>
+  <nanos>952900</nanos>
+  <sequence>0</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Inicio de ejecución de Main</message>
+</record>
+<record>
+  <date>2021-01-10T19:16:11.201014300Z</date>
+  <millis>1610306171201</millis>
+  <nanos>14300</nanos>
+  <sequence>1</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Error en creación de ventana</message>
+  <exception>
+    <message>java.lang.reflect.InvocationTargetException</message>
+    <frame>
+      <class>java.awt.EventQueue</class>
+      <method>invokeAndWait</method>
+      <line>1367</line>
+    </frame>
+    <frame>
+      <class>java.awt.EventQueue</class>
+      <method>invokeAndWait</method>
+      <line>1342</line>
+    </frame>
+    <frame>
+      <class>javax.swing.SwingUtilities</class>
+      <method>invokeAndWait</method>
+      <line>1480</line>
+    </frame>
+    <frame>
+      <class>examen.ext201702.Main</class>
+      <method>main</method>
+      <line>52</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2021-01-10T19:16:11.251026300Z</date>
+  <millis>1610306171251</millis>
+  <nanos>26300</nanos>
+  <sequence>2</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.MapaFarmacias</class>
+  <method>saveToFile</method>
+  <thread>1</thread>
+  <message>Guardado fichero de farmacias de 10/1</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-10T19:25:46.733361400Z</date>
+  <millis>1610306746733</millis>
+  <nanos>361400</nanos>
+  <sequence>0</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Inicio de ejecución de Main</message>
+</record>
+<record>
+  <date>2021-01-10T19:25:47.283927200Z</date>
+  <millis>1610306747283</millis>
+  <nanos>927200</nanos>
+  <sequence>1</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.MapaFarmacias</class>
+  <method>saveToFile</method>
+  <thread>1</thread>
+  <message>Guardado fichero de farmacias de 10/1</message>
+</record>
+<record>
+  <date>2021-01-10T19:25:57.793487300Z</date>
+  <millis>1610306757793</millis>
+  <nanos>487300</nanos>
+  <sequence>2</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main$HiloCambioPantalla</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Hilo de cambio de pantalla interrumpido</message>
+</record>
+<record>
+  <date>2021-01-10T19:25:57.794488100Z</date>
+  <millis>1610306757794</millis>
+  <nanos>488100</nanos>
+  <sequence>3</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main$HiloCambioPantalla</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Final de hilo de actualizaci�n de pantalla</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-10T19:26:06.641678500Z</date>
+  <millis>1610306766641</millis>
+  <nanos>678500</nanos>
+  <sequence>0</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Inicio de ejecución de Main</message>
+</record>
+<record>
+  <date>2021-01-10T19:26:07.180800600Z</date>
+  <millis>1610306767180</millis>
+  <nanos>800600</nanos>
+  <sequence>1</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.MapaFarmacias</class>
+  <method>saveToFile</method>
+  <thread>1</thread>
+  <message>Guardado fichero de farmacias de 10/1</message>
+</record>
+<record>
+  <date>2021-01-10T19:26:21.366745Z</date>
+  <millis>1610306781366</millis>
+  <nanos>745000</nanos>
+  <sequence>2</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main$HiloCambioPantalla</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Hilo de cambio de pantalla interrumpido</message>
+</record>
+<record>
+  <date>2021-01-10T19:26:21.366745Z</date>
+  <millis>1610306781366</millis>
+  <nanos>745000</nanos>
+  <sequence>3</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main$HiloCambioPantalla</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Final de hilo de actualizaci�n de pantalla</message>
+</record>
+</log>
