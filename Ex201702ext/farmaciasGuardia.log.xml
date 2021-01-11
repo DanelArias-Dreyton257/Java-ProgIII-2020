@@ -332,3 +332,55 @@
   <message>Final de hilo de actualizaci�n de pantalla</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-01-11T16:25:25.845584200Z</date>
+  <millis>1610382325845</millis>
+  <nanos>584200</nanos>
+  <sequence>0</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Inicio de ejecución de Main</message>
+</record>
+<record>
+  <date>2021-01-11T16:25:26.499053700Z</date>
+  <millis>1610382326499</millis>
+  <nanos>53700</nanos>
+  <sequence>1</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.MapaFarmacias</class>
+  <method>saveToFile</method>
+  <thread>1</thread>
+  <message>Guardado fichero de farmacias de 11/1</message>
+</record>
+<record>
+  <date>2021-01-11T16:25:29.481725300Z</date>
+  <millis>1610382329481</millis>
+  <nanos>725300</nanos>
+  <sequence>2</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main$HiloCambioPantalla</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Hilo de cambio de pantalla interrumpido</message>
+</record>
+<record>
+  <date>2021-01-11T16:25:29.482726500Z</date>
+  <millis>1610382329482</millis>
+  <nanos>726500</nanos>
+  <sequence>3</sequence>
+  <logger>examen.ext201702.Main</logger>
+  <level>INFO</level>
+  <class>examen.ext201702.Main$HiloCambioPantalla</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Final de hilo de actualizaci�n de pantalla</message>
+</record>
+</log>

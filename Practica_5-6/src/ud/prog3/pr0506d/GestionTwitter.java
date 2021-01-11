@@ -1,6 +1,5 @@
 package ud.prog3.pr0506d;
 
-import java.io.File;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -11,25 +10,28 @@ public class GestionTwitter {
 	public static HashMap<String, UsuarioTwitter> mapaUsersID = new HashMap<>();
 	public static HashMap<String, UsuarioTwitter> mapaUsersNick = new HashMap<>();
 	public static TreeSet<UsuarioTwitter> treeSetAmigos = new TreeSet<>();
+	public static VenPr0506 ven;
 
 	public static void main(String[] args) {
-		try {
-			// TODO Configurar el path y ruta del fichero a cargar
-			String fileName = "C:\\Users\\danel\\Downloads\\datos-twitter\\data.csv";
-			CSV.processCSV(new File(fileName));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		calcularAmigosEnMapa();
-
-		anyadirUsuariosATreeSet();
-
-		printUsuarioBuscadoRecur("TouchOfMyHand");
-
-		printNvAmigos(mapaUsersNick.get("zulfimohdali"), 2);
 		
-		new VenPr0506().setVisible(true);
+		ven = new VenPr0506();
+		ven.setVisible(true);
+		
+//		try {
+//			// TODO Configurar el path y ruta del fichero a cargar
+//			String fileName = "C:\\Users\\danel\\Downloads\\datos-twitter\\data.csv";
+//			CSV.processCSV(new File(fileName));
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//		calcularAmigosEnMapa();
+//
+//		anyadirUsuariosATreeSet();
+//
+//		printUsuarioBuscadoRecur("TouchOfMyHand");
+//
+//		printNvAmigos(mapaUsersNick.get("zulfimohdali"), 2);
 
 	}
 
@@ -38,7 +40,7 @@ public class GestionTwitter {
 	 * que solo se muestran los que tienen relacion con algun otro usuario que
 	 * aparezca en el dataset
 	 */
-	private static void anyadirUsuariosATreeSet() {
+	static void anyadirUsuariosATreeSet() {
 		for (Entry<String, UsuarioTwitter> set : mapaUsersNick.entrySet()) {
 			UsuarioTwitter u = set.getValue();
 			if (u.getFriendsInCSVCount() > 0) {
@@ -54,7 +56,7 @@ public class GestionTwitter {
 	 * 
 	 * @param nick
 	 */
-	private static void printUsuarioBuscadoRecur(String nick) {
+	static void printUsuarioBuscadoRecur(String nick) {
 		printUsuarioBuscadoRecur(treeSetAmigos.last(), treeSetAmigos.first(), nick);
 	}
 
@@ -73,9 +75,9 @@ public class GestionTwitter {
 	 */
 	private static void printUsuarioBuscadoRecur(UsuarioTwitter anterior, UsuarioTwitter adelantado, String nick) {
 		if (nick.equals(anterior.getScreenName())) {
-			System.out.println(anterior.toStringAmigos());
+			ven.addTextLN(anterior.toStringAmigos());
 		} else if (nick.equals(adelantado.getScreenName())) {
-			System.out.println(adelantado.toStringAmigos());
+			ven.addTextLN(adelantado.toStringAmigos());
 		} else {
 			UsuarioTwitter nextAnterior = treeSetAmigos.lower(anterior);
 			UsuarioTwitter prevAdelantado = treeSetAmigos.higher(adelantado);
@@ -88,7 +90,7 @@ public class GestionTwitter {
 	/**
 	 * Cuenta cuantos amigos tiene cada usuario en el mapa que representa el dataset
 	 */
-	private static void calcularAmigosEnMapa() {
+	static void calcularAmigosEnMapa() {
 
 		for (Entry<String, UsuarioTwitter> set : mapaUsersNick.entrySet()) {
 			UsuarioTwitter u = set.getValue();
@@ -129,23 +131,18 @@ public class GestionTwitter {
 	 * @param user
 	 * @param nv
 	 */
-	private static void printNvAmigos(UsuarioTwitter user, int nv) {
-		System.out.println(user.getScreenName() + " amigos de nv:" + nv);
+	static void printNvAmigos(UsuarioTwitter user, int nv) {
+		ven.addTextLN(user.getScreenName() + " amigos de nv:" + nv);
 		TreeSet<String> amigos = printNvAmigosRecur(user, nv, 0, new TreeSet<String>(new Comparator<String>() {
 			@Override
 			public int compare(String o1, String o2) {
 				return o1.compareToIgnoreCase(o2);
 			}
 		}));
-		System.out.println("Los amigos de nv." + nv + " de " + user.getScreenName() + " son:");
-		int count = 0;
+		ven.addTextLN("Los amigos de nv." + nv + " de " + user.getScreenName() + " son:\n");
 		for (String a : amigos) {
 			String s = a + ", ";
-			count++;
-			if (count % 10 == 0) {
-				s += "\n";
-			}
-			System.out.print(s);
+			ven.addText(s);
 		}
 	}
 	

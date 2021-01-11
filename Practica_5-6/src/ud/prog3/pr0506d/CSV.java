@@ -259,15 +259,17 @@ public class CSV {
 		// Muestra una bonica forma de ver que se va cargando
 		// He intentado que se elimine la linea anterior para que no este pegando saltos
 		// la consola pero me ha sido imposible :(
+		
 
 		double porc = (numLin * 100.0) / 40000.0;
-		if (porc % 1 == 0) {
-			System.out.println(porc + "%");
-			for (int i = 0; i < porc; i++) {
-				System.out.print("=");
-			}
-			System.out.println(">");
-		}
+		GestionTwitter.ven.getPrBarra().setValue((int) porc);
+//		if (porc % 1 == 0) {
+//			System.out.println(porc + "%");
+//			for (int i = 0; i < porc; i++) {
+//				System.out.print("=");
+//			}
+//			System.out.println(">");
+//		}
 	}
 
 }
