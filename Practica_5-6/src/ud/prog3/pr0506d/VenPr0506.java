@@ -1,7 +1,9 @@
 package ud.prog3.pr0506d;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,10 +20,15 @@ import java.util.Properties;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 public class VenPr0506 extends JFrame {
 
@@ -32,14 +39,43 @@ public class VenPr0506 extends JFrame {
 	private static final Dimension PREF_DIM = new Dimension(1500, 600);
 
 	private JPanel pnPrincipal = new JPanel(new BorderLayout());
+	private JPanel pnTexto = new JPanel();
+	private JPanel pnTabla = new JPanel();
+	private JPanel pnCentro = new JPanel(new GridLayout(1, 2));
 	private JFileChooser fcFichero;
-	private JTextArea taInfo = new JTextArea(20, 20);
+	private JTextArea taInfo = new JTextArea(30, 50);
 	private JButton btHacerCosicas = new JButton("Hacer Cosicas");
 	private JButton btClear = new JButton("Clear");
 	private JPanel pnBotones = new JPanel();
 	private String path = "C:\\";
 	private JProgressBar prBarra = new JProgressBar(JProgressBar.HORIZONTAL);
+	private String[] cabeceras = { "Id", "ScreenName", "followerCount", "friendCount", "lang", "lastSeen"};
+	private DefaultTableModel mdTabla = new DefaultTableModel() {
+		private static final long serialVersionUID = 1L;
 
+		public java.lang.Class<?> getColumnClass(int columnIndex) {
+			return String.class;
+		};
+
+		public boolean isCellEditable(int row, int column) {
+			return false;
+		};
+	};
+
+	private JTable tbTabla = new JTable(mdTabla) {
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
+		public TableCellRenderer getCellRenderer(int arg0, int arg1) {
+			DefaultTableCellRenderer df = new DefaultTableCellRenderer();
+			df.setHorizontalAlignment(JLabel.CENTER);
+
+			return df;
+		}
+
+	};
+	
 	public VenPr0506() {
 
 		try (InputStream input = new FileInputStream("path.properties")) {
@@ -69,7 +105,15 @@ public class VenPr0506 extends JFrame {
 		getContentPane().add(pnPrincipal);
 
 		JScrollPane pn = new JScrollPane(taInfo);
-		pnPrincipal.add(pn, BorderLayout.CENTER);
+		pnTexto.add(pn);
+		JScrollPane pn1 = new JScrollPane(tbTabla);
+		pnTabla.add(pn1);
+		
+		pnCentro.add(pnTexto);
+		pnCentro.add(pnTabla);
+		
+		pnPrincipal.add(pnCentro, BorderLayout.CENTER);
+		
 		pnPrincipal.add(pnBotones, BorderLayout.SOUTH);
 		prBarra.setStringPainted(true);
 		pnPrincipal.add(prBarra, BorderLayout.NORTH);
@@ -98,6 +142,8 @@ public class VenPr0506 extends JFrame {
 
 						GestionTwitter.anyadirUsuariosATreeSet();
 						
+						cargarTabla();
+						
 						btHacerCosicas.setEnabled(true);
 						
 					} catch (IOException e) {
@@ -116,10 +162,12 @@ public class VenPr0506 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				GestionTwitter.printUsuarioBuscadoRecur("TouchOfMyHand");
-				GestionTwitter.printNvAmigos(GestionTwitter.mapaUsersNick.get("zulfimohdali"), 2);
-
+				new Thread() {
+					public void run() {
+						GestionTwitter.printUsuarioBuscadoRecur("TouchOfMyHand");
+						GestionTwitter.printNvAmigos(GestionTwitter.mapaUsersNick.get("zulfimohdali"), 2);
+					}
+				}.start();
 			}
 		});
 		btClear.addActionListener(new ActionListener() {
@@ -171,5 +219,18 @@ public class VenPr0506 extends JFrame {
 	public JProgressBar getPrBarra() {
 		return prBarra;
 	}
+	private void cargarTabla() {
+		for (String c : cabeceras) {
+			mdTabla.addColumn(c);
+		}
+
+		for (UsuarioTwitter j : GestionTwitter.treeSetAmigos) {
+			mdTabla.addRow(j.getDatosTabla());
+
+		}
+
+		tbTabla.revalidate();
+		
+	};
 
 }

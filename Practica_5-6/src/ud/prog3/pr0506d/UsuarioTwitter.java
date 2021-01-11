@@ -1,6 +1,7 @@
 package ud.prog3.pr0506d;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class UsuarioTwitter implements Comparable<UsuarioTwitter> {
 	private String id = "";// identificador único de cada usuario
@@ -262,6 +263,17 @@ public class UsuarioTwitter implements Comparable<UsuarioTwitter> {
 			}
 		}
 		return this.getScreenName() + " tiene " + this.getFriendsInCSVCount() + " amigos que son:\n\t" + nicks;
+	}
+
+	public Vector<String> getDatosTabla() {
+		Vector<String> v = new Vector<>();
+		v.add(0, id);
+		v.add(1, screenName);
+		v.add(2, followersCount+"");
+		v.add(3, friendsCount+"");
+		v.add(4,lang);
+		v.add(5, lastSeen+"");
+		return v;
 	}
 
 }
