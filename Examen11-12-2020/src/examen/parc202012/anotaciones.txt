@@ -1,0 +1,50 @@
+==========================
+Tarea 4. Con los datos de prueba 1:
+
+Calculando grupos homogéneos en lista de 4 usuarios: [Persona 1: 121 minutos, Persona 2: 122 minutos, Persona 3: 195 minutos, Persona 4: 194 minutos]
+2	2	[Persona 1: 121 minutos, Persona 3: 195 minutos]	[Persona 2: 122 minutos, Persona 4: 194 minutos]
+2	2	[Persona 2: 122 minutos, Persona 4: 194 minutos]	[Persona 1: 121 minutos, Persona 3: 195 minutos]
+Grupos homogéneos: 2 de 16 combinaciones.
+
+
+Con los datos de prueba 2:
+Calculando grupos homogéneos en lista de 28 usuarios: [Aimar Hernando: 215 minutos, Alberto Uranga: 355 minutos, Alcira Escala: 138 minutos, Andoni Couso: 218 minutos, Asier Sanz: 412 minutos, Daniel Ramón: 232 minutos, David Hoyo: 227 minutos, Eneko Angulo: 340 minutos, Erlantz Santos: 194 minutos, Iker López: 146 minutos, Iñigo Aguilar: 214 minutos, Jorge Román: 438 minutos, Josu Losada: 467 minutos, Josu Morán: 459 minutos, Josu Sanz: 105 minutos, Kerman Uralde: 443 minutos, Lander Muñoz: 254 minutos, Lourdes Aguilera: 224 minutos, Marcos Blasco: 106 minutos, Markel Bilbao: 173 minutos, María Blanco: 348 minutos, Miguel Solana: 343 minutos, Mikel Fernandez: 180 minutos, Nicolás Revilla: 449 minutos, Víctor Cabel: 341 minutos, Xabier Uribe: 331 minutos, Álvaro Guerrero: 317 minutos, Álvaro Martínez: 447 minutos]
+14	14	[Aimar Hernando: 215 minutos, Alberto Uranga: 355 minutos, Alcira Escala: 138 minutos, Andoni Couso: 218 minutos, Asier Sanz: 412 minutos, Daniel Ramón: 232 minutos, David Hoyo: 227 minutos, Eneko Angulo: 340 minutos, Erlantz Santos: 194 minutos, Iñigo Aguilar: 214 minutos, Jorge Román: 438 minutos, Josu Morán: 459 minutos, Kerman Uralde: 443 minutos, Markel Bilbao: 173 minutos]	[Iker López: 146 minutos, Josu Losada: 467 minutos, Josu Sanz: 105 minutos, Lander Muñoz: 254 minutos, Lourdes Aguilera: 224 minutos, Marcos Blasco: 106 minutos, María Blanco: 348 minutos, Miguel Solana: 343 minutos, Mikel Fernandez: 180 minutos, Nicolás Revilla: 449 minutos, Víctor Cabel: 341 minutos, Xabier Uribe: 331 minutos, Álvaro Guerrero: 317 minutos, Álvaro Martínez: 447 minutos]
+...
+... (un largo etcétera)
+...
+14	14	[Iker López: 146 minutos, Josu Losada: 467 minutos, Josu Sanz: 105 minutos, Lander Muñoz: 254 minutos, Lourdes Aguilera: 224 minutos, Marcos Blasco: 106 minutos, María Blanco: 348 minutos, Miguel Solana: 343 minutos, Mikel Fernandez: 180 minutos, Nicolás Revilla: 449 minutos, Víctor Cabel: 341 minutos, Xabier Uribe: 331 minutos, Álvaro Guerrero: 317 minutos, Álvaro Martínez: 447 minutos]	[Aimar Hernando: 215 minutos, Alberto Uranga: 355 minutos, Alcira Escala: 138 minutos, Andoni Couso: 218 minutos, Asier Sanz: 412 minutos, Daniel Ramón: 232 minutos, David Hoyo: 227 minutos, Eneko Angulo: 340 minutos, Erlantz Santos: 194 minutos, Iñigo Aguilar: 214 minutos, Jorge Román: 438 minutos, Josu Morán: 459 minutos, Kerman Uralde: 443 minutos, Markel Bilbao: 173 minutos]
+Grupos homogéneos: 24760 de 268435456 combinaciones.
+
+
+==========================
+Salida de tarea 1 y tarea 3 de usuarios integrados (ordenados por nombre):
+
+Aimar Hernando	2	3 h 35 min
+Alberto Uranga	3	5 h 55 min
+Alcira Escala	2	2 h 18 min
+Andoni Couso	2	3 h 38 min
+Asier Sanz	4	6 h 52 min
+Daniel Ramón	2	3 h 52 min
+David Hoyo	2	3 h 47 min
+Eneko Angulo	3	5 h 40 min
+Erlantz Santos	2	3 h 14 min
+Iker López	2	2 h 26 min
+Iñigo Aguilar	3	3 h 34 min
+Jorge Román	4	7 h 18 min
+Josu Losada	4	7 h 47 min
+Josu Morán	4	7 h 39 min
+Josu Sanz	2	1 h 45 min
+Kerman Uralde	4	7 h 23 min
+Lander Muñoz	3	4 h 14 min
+Lourdes Aguilera	2	3 h 44 min
+Marcos Blasco	1	1 h 46 min
+Markel Bilbao	2	2 h 53 min
+María Blanco	3	5 h 48 min
+Miguel Solana	3	5 h 43 min
+Mikel Fernandez	2	3 h 0 min
+Nicolás Revilla	4	7 h 29 min
+Víctor Cabel	3	5 h 41 min
+Xabier Uribe	3	5 h 31 min
+Álvaro Guerrero	3	5 h 17 min
+Álvaro Martínez	4	7 h 27 min
